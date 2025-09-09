@@ -59,8 +59,7 @@ namespace WH.Api.Services
             // InformationRegister 
             services.AddScoped<IInformationRegisterЦеныНоменклатурыRecordTypeService, InformationRegisterЦеныНоменклатурыRecordTypeService>();
             services.AddScoped<IInformationRegisterЦеныНоменклатурыЗакупочныеSliceLastService, InformationRegisterЦеныНоменклатурыЗакупочныеSliceLastService>();
-            services.AddScoped<IInformationRegisterЦеныНоменклатурыПоставкиSliceLastService, InformationRegisterЦеныНоменклатурыПоставкиSliceLastService>();
-                       
+                      
             // Awesome
             services.AddScoped<IAwesomeТоварыНаСкладахRecordTypeОперацияЦеныService, AwesomeТоварыНаСкладахRecordTypeОперацияЦеныService>();
 

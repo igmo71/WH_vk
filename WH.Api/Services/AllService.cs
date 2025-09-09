@@ -20,8 +20,6 @@ namespace WH.Api.Services
 
         private readonly IInformationRegisterЦеныНоменклатурыRecordTypeService _informationRegisterЦеныНоменклатурыRecordTypeService;
         private readonly IInformationRegisterЦеныНоменклатурыЗакупочныеSliceLastService _informationRegisterЦеныНоменклатурыЗакупочныеSliceLastService;
-        private readonly IInformationRegisterЦеныНоменклатурыПоставкиSliceLastService _informationRegisterЦеныНоменклатурыПоставкиSliceLastService;
-
         private readonly IAccumulationRegisterВыручкаИСебестоимостьПродажRecordTypeService _accumulationRegisterВыручкаИСебестоимостьПродажRecordTypeService;
         private readonly IAccumulationRegisterВыручкаИСебестоимостьПродажTurnoversService _accumulationRegisterВыручкаИСебестоимостьПродажTurnoversService;
         private readonly IAccumulationRegisterГрафикПоступленияТоваровRecordTypeService _accumulationRegisterГрафикПоступленияТоваровRecordTypeService;
@@ -39,8 +37,6 @@ namespace WH.Api.Services
 
             IInformationRegisterЦеныНоменклатурыRecordTypeService informationRegisterЦеныНоменклатурыRecordTypeService,
             IInformationRegisterЦеныНоменклатурыЗакупочныеSliceLastService informationRegisterЦеныНоменклатурыЗакупочныеSliceLastService,
-            IInformationRegisterЦеныНоменклатурыПоставкиSliceLastService informationRegisterЦеныНоменклатурыПоставкиSliceLastService,
-
             IAccumulationRegisterВыручкаИСебестоимостьПродажRecordTypeService accumulationRegisterВыручкаИСебестоимостьПродажRecordTypeService,
             IAccumulationRegisterВыручкаИСебестоимостьПродажTurnoversService accumulationRegisterВыручкаИСебестоимостьПродажTurnoversService,
             IAccumulationRegisterГрафикПоступленияТоваровRecordTypeService accumulationRegisterГрафикПоступленияТоваровRecordTypeService,
@@ -57,8 +53,6 @@ namespace WH.Api.Services
 
             _informationRegisterЦеныНоменклатурыRecordTypeService = informationRegisterЦеныНоменклатурыRecordTypeService;
             _informationRegisterЦеныНоменклатурыЗакупочныеSliceLastService = informationRegisterЦеныНоменклатурыЗакупочныеSliceLastService;
-            _informationRegisterЦеныНоменклатурыПоставкиSliceLastService = informationRegisterЦеныНоменклатурыПоставкиSliceLastService;
-
             _accumulationRegisterВыручкаИСебестоимостьПродажRecordTypeService = accumulationRegisterВыручкаИСебестоимостьПродажRecordTypeService;
             _accumulationRegisterВыручкаИСебестоимостьПродажTurnoversService = accumulationRegisterВыручкаИСебестоимостьПродажTurnoversService;
             _accumulationRegisterГрафикПоступленияТоваровRecordTypeService = accumulationRegisterГрафикПоступленияТоваровRecordTypeService;
@@ -80,8 +74,6 @@ namespace WH.Api.Services
 
             result.Add(await _informationRegisterЦеныНоменклатурыRecordTypeService.LoadingAsync(begin, end));
             result.Add(await _informationRegisterЦеныНоменклатурыЗакупочныеSliceLastService.LoadingAsync(begin, end));
-            result.Add(await _informationRegisterЦеныНоменклатурыПоставкиSliceLastService.LoadingAsync(begin, end));
-
             result.Add(await _accumulationRegisterВыручкаИСебестоимостьПродажRecordTypeService.LoadingAsync(begin, end));
             result.Add(await _accumulationRegisterВыручкаИСебестоимостьПродажTurnoversService.LoadingAsync(begin, end));
             result.Add(await _accumulationRegisterЗакупкиRecordTypeService.LoadingAsync(begin, end));
@@ -105,8 +97,6 @@ namespace WH.Api.Services
 
             result.AddRange(await _informationRegisterЦеныНоменклатурыRecordTypeService.LoadingLastTripleMonthsAsync());
             result.AddRange(await _informationRegisterЦеныНоменклатурыЗакупочныеSliceLastService.LoadingLastTripleMonthsAsync());
-            result.AddRange(await _informationRegisterЦеныНоменклатурыПоставкиSliceLastService.LoadingLastTripleMonthsAsync());
-
             result.AddRange(await _accumulationRegisterВыручкаИСебестоимостьПродажRecordTypeService.LoadingLastTripleMonthsAsync());
             result.AddRange(await _accumulationRegisterВыручкаИСебестоимостьПродажTurnoversService.LoadingLastTripleMonthsAsync());
             result.AddRange(await _accumulationRegisterЗакупкиRecordTypeService.LoadingLastTripleMonthsAsync());
