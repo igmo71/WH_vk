@@ -1,11 +1,8 @@
-﻿using WH.Api.DataMining;
-using WH.Api.Services.AccumulationRegister;
+﻿using WH.Api.Services.AccumulationRegister;
 using WH.Api.Services.Awesome;
 using WH.Api.Services.Catalog;
 using WH.Api.Services.Document;
 using WH.Api.Services.InformationRegister;
-using WH.Api.Services.Wms;
-using WH.Api.Voximplant;
 
 namespace WH.Api.Services
 {
@@ -35,12 +32,6 @@ namespace WH.Api.Services
 
         private readonly IAwesomeТоварыНаСкладахRecordTypeОперацияЦеныService _awesomeТоварыНаСкладахRecordTypeОперацияЦеныService;
 
-        private readonly IAccumulationRegisterТоварыВЯчейкахBalanceAndTurnoversService _accumulationRegisterТоварыВЯчейкахBalanceAndTurnoversService;
-
-        private readonly IDataMiningService _dataMiningService;
-
-        private readonly IVoximplantService _voximplantService;
-
         public AllService(
             ICatalogsAllService catalogsAllService,
 
@@ -58,13 +49,7 @@ namespace WH.Api.Services
             IAccumulationRegisterТоварыНаСкладахBalanceService accumulationRegisterТоварыНаСкладахBalanceService,
             IAccumulationRegisterТоварыНаСкладахRecordTypeService accumulationRegisterТоварыНаСкладахRecordTypeService,
 
-            IAwesomeТоварыНаСкладахRecordTypeОперацияЦеныService awesomeТоварыНаСкладахRecordTypeОперацияЦеныService,
-
-            IAccumulationRegisterТоварыВЯчейкахBalanceAndTurnoversService accumulationRegisterТоварыВЯчейкахBalanceAndTurnoversService,
-
-            IDataMiningService dataMiningService,
-
-            IVoximplantService voximplantService)
+            IAwesomeТоварыНаСкладахRecordTypeОперацияЦеныService awesomeТоварыНаСкладахRecordTypeОперацияЦеныService)
         {
             _catalogsAllService = catalogsAllService;
 
@@ -83,12 +68,6 @@ namespace WH.Api.Services
             _accumulationRegisterТоварыНаСкладахRecordTypeService = accumulationRegisterТоварыНаСкладахRecordTypeService;
 
             _awesomeТоварыНаСкладахRecordTypeОперацияЦеныService = awesomeТоварыНаСкладахRecordTypeОперацияЦеныService;
-
-            _accumulationRegisterТоварыВЯчейкахBalanceAndTurnoversService = accumulationRegisterТоварыВЯчейкахBalanceAndTurnoversService;
-
-            _dataMiningService = dataMiningService;
-
-            _voximplantService = voximplantService;
         }
 
         public async Task<List<ServiceResult>> LoadingAsync(DateTime begin, DateTime end)
@@ -111,13 +90,6 @@ namespace WH.Api.Services
             result.Add(await _accumulationRegisterТоварыНаСкладахRecordTypeService.LoadingAsync(begin, end));
 
             result.Add(await _awesomeТоварыНаСкладахRecordTypeОперацияЦеныService.LoadingAsync(begin, end));
-
-            result.Add(await _accumulationRegisterТоварыВЯчейкахBalanceAndTurnoversService.LoadingAsync(begin, end));
-
-            result.Add(await _dataMiningService.LoadingPredictsAsync());
-            result.Add(await _dataMiningService.LoadingScuSaleRanksAsync());
-
-            result.Add(await _voximplantService.LoadingCurrentMonthAsync());
 
             return result;
         }
@@ -143,13 +115,6 @@ namespace WH.Api.Services
             result.AddRange(await _accumulationRegisterТоварыНаСкладахRecordTypeService.LoadingLastTripleMonthsAsync());
 
             result.AddRange(await _awesomeТоварыНаСкладахRecordTypeОперацияЦеныService.LoadingLastTripleMonthsAsync());
-
-            result.AddRange(await _accumulationRegisterТоварыВЯчейкахBalanceAndTurnoversService.LoadingLastTripleMonthsAsync());
-
-            result.Add(await _dataMiningService.LoadingPredictsAsync());
-            result.Add(await _dataMiningService.LoadingScuSaleRanksAsync());
-
-            result.Add(await _voximplantService.LoadingCurrentMonthAsync());
 
             return result;
         }

@@ -1,7 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data;
-using System.Text.Json.Serialization;
 
 namespace WH.Domain.Models.Catalog
 {
@@ -20,9 +19,6 @@ namespace WH.Domain.Models.Catalog
         public bool Конкурент { get; set; }
         public bool ПрочиеОтношения { get; set; }
         public bool Перевозчик { get; set; }
-
-        [JsonPropertyName("ВДП_ВидыДеятельности")]
-        public List<CatalogПартнерыВидыДеятельности>? ВидыДеятельности { get; set; }
 
         //public List<CatalogПартнерыДополнительныеРеквизиты>? ДополнительныеРеквизиты { get; set; }
         //[MaxLength(AppSettings.VALUE)] public string? Доброга_ЕмкостьПотенциальная { get; set; }

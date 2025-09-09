@@ -3,8 +3,6 @@ using WH.Api.Services.Awesome;
 using WH.Api.Services.Catalog;
 using WH.Api.Services.Document;
 using WH.Api.Services.InformationRegister;
-using WH.Api.Services.Trash;
-using WH.Api.Services.Wms;
 
 namespace WH.Api.Services
 {
@@ -18,9 +16,6 @@ namespace WH.Api.Services
             services.AddScoped<IAccumulationRegisterВыручкаИСебестоимостьПродажTurnoversService, AccumulationRegisterВыручкаИСебестоимостьПродажTurnoversService>();
             services.AddScoped<IAccumulationRegisterГрафикПоступленияТоваровRecordTypeService, AccumulationRegisterГрафикПоступленияТоваровRecordTypeService>();
             services.AddScoped<IAccumulationRegisterЗакупкиRecordTypeService, AccumulationRegisterЗакупкиRecordTypeService>();
-            services.AddScoped<IAccumulationRegisterСебестоимостьТоваровBalanceService, AccumulationRegisterСебестоимостьТоваровBalanceService>();
-            services.AddScoped<IAccumulationRegisterСебестоимостьТоваровBalanceAndTurnoversService, AccumulationRegisterСебестоимостьТоваровBalanceAndTurnoversService>();
-            services.AddScoped<IAccumulationRegisterСебестоимостьТоваровRecordTypeService, AccumulationRegisterСебестоимостьТоваровRecordTypeService>();
             services.AddScoped<IAccumulationRegisterТоварыНаСкладахBalanceAndTurnoversService, AccumulationRegisterТоварыНаСкладахBalanceAndTurnoversService>();
             services.AddScoped<IAccumulationRegisterТоварыНаСкладахBalanceService, AccumulationRegisterТоварыНаСкладахBalanceService>();
             services.AddScoped<IAccumulationRegisterТоварыНаСкладахRecordTypeService, AccumulationRegisterТоварыНаСкладахRecordTypeService>();
@@ -28,12 +23,10 @@ namespace WH.Api.Services
             // Catalog 
             services.AddScoped<ICatalogsAllService, CatalogsAllService>();
             services.AddScoped<ICatalogБизнесРегионыService, CatalogБизнесРегионыService>();
-            services.AddScoped<ICatalogВидыДеятельностиService, CatalogВидыДеятельностиService>();
             services.AddScoped<ICatalogГруппыПользователейService, CatalogГруппыПользователейService>();
             services.AddScoped<ICatalogВидыНоменклатурыService, CatalogВидыНоменклатурыService>();
             services.AddScoped<ICatalogВидыЦенService, CatalogВидыЦенService>();
             services.AddScoped<ICatalogЗначенияСвойствОбъектовService, CatalogЗначенияСвойствОбъектовService>();
-            services.AddScoped<ICatalogИсточникиЗаявокService, CatalogИсточникиЗаявокService>();
             services.AddScoped<ICatalogМаркиService, CatalogМаркиService>();
             services.AddScoped<ICatalogНоменклатураService, CatalogНоменклатураService>();
             services.AddScoped<ICatalogПартнерыService, CatalogПартнерыService>();
@@ -45,8 +38,6 @@ namespace WH.Api.Services
             services.AddScoped<ICatalogСоглашенияСКлиентамиService, CatalogСоглашенияСКлиентамиService>();
             services.AddScoped<ICatalogСкладыService, CatalogСкладыService>();
             services.AddScoped<ICatalogСтруктураПредприятияService, CatalogСтруктураПредприятияService>();
-            services.AddScoped<ICatalogСхемаПредприятияService, CatalogСхемаПредприятияService>();
-            services.AddScoped<ICatalogТэгиПартнеровService, CatalogТэгиПартнеровService>();
             services.AddScoped<ICatalogУпаковкиЕдиницыИзмеренияService, CatalogУпаковкиЕдиницыИзмеренияService>();
             services.AddScoped<ICatalogЦеновыеГруппыService, CatalogЦеновыеГруппыService>();
 
@@ -65,17 +56,11 @@ namespace WH.Api.Services
             services.AddScoped<IDocumentСборкаТоваровService, DocumentСборкаТоваровService>();
             services.AddScoped<IDocumentУстановкаЦенНоменклатурыService, DocumentУстановкаЦенНоменклатурыService>();
 
-
             // InformationRegister 
-            services.AddScoped<IInformationRegisterТэгиПартнеровService, InformationRegisterТэгиПартнеровService>();
             services.AddScoped<IInformationRegisterЦеныНоменклатурыRecordTypeService, InformationRegisterЦеныНоменклатурыRecordTypeService>();
             services.AddScoped<IInformationRegisterЦеныНоменклатурыЗакупочныеSliceLastService, InformationRegisterЦеныНоменклатурыЗакупочныеSliceLastService>();
             services.AddScoped<IInformationRegisterЦеныНоменклатурыПоставкиSliceLastService, InformationRegisterЦеныНоменклатурыПоставкиSliceLastService>();
-
-            // Wms
-            services.AddScoped<IAccumulationRegisterТоварыВЯчейкахBalanceAndTurnoversService, AccumulationRegisterТоварыВЯчейкахBalanceAndTurnoversService>();
-            services.AddScoped<ICatalogЯчейкиService, CatalogЯчейкиService>();
-
+                       
             // Awesome
             services.AddScoped<IAwesomeТоварыНаСкладахRecordTypeОперацияЦеныService, AwesomeТоварыНаСкладахRecordTypeОперацияЦеныService>();
 

@@ -3,12 +3,9 @@ using Quartz.AspNetCore;
 using Serilog;
 using WH.Api.Jobs.AccumulationRegister;
 using WH.Api.Jobs.Awesome;
-using WH.Api.Jobs.Call;
 using WH.Api.Jobs.Catalog;
-using WH.Api.Jobs.DataMining;
 using WH.Api.Jobs.Document;
 using WH.Api.Jobs.InformationRegister;
-//using WH.Api.Jobs.Wms;
 
 namespace WH.Api.Jobs
 {
@@ -32,23 +29,13 @@ namespace WH.Api.Jobs
                 // AccumulationRegister  
                 q.AddJobAndTrigger<AccumulationRegisterВыручкаИСебестоимостьПродажRecordTypeLastTripleMonthJob>(configuration);
                 q.AddJobAndTrigger<AccumulationRegisterВыручкаИСебестоимостьПродажTurnoversLastTripleMonthJob>(configuration);
-                //q.AddJobAndTrigger<AccumulationRegisterГрафикПоступленияТоваровRecordTypeLastTripleMonthJob>(configuration);  // нет
                 q.AddJobAndTrigger<AccumulationRegisterЗакупкиRecordTypeLastTripleMonthJob>(configuration);
                 q.AddJobAndTrigger<AccumulationRegisterТоварыНаСкладахBalanceAndTurnoversLastTripleMonthJob>(configuration);
                 q.AddJobAndTrigger<AccumulationRegisterТоварыНаСкладахBalanceLastTripleMonthJob>(configuration);
                 q.AddJobAndTrigger<AccumulationRegisterТоварыНаСкладахRecordTypeLastTripleMonthJob>(configuration);
 
-                // Call
-                q.AddJobAndTrigger<VoximplantCurrentMonthJob>(configuration);
-
-                // DataMining
-                q.AddJobAndTrigger<DataMiningJob>(configuration);
-
                 // Awesome
                 q.AddJobAndTrigger<AwesomeТоварыНаСкладахRecordTypeОперацияЦеныLastTripleMonthJob>(configuration);
-
-                //Wms
-                //q.AddJobAndTrigger<AccumulationRegisterТоварыВЯчейкахBalanceAndTurnoversLastTripleMonthJob>(configuration);
             });
 
             //services.AddQuartzHostedService(q => q.WaitForJobsToComplete = true);

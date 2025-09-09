@@ -4,11 +4,9 @@ using Serilog;
 using System.Text.Encodings.Web;
 using System.Text.Unicode;
 using WH.Api.Data;
-using WH.Api.DataMining;
 using WH.Api.Jobs;
 using WH.Api.OData;
 using WH.Api.Services;
-using WH.Api.Voximplant;
 
 namespace WH.Api
 {
@@ -51,10 +49,6 @@ namespace WH.Api
             builder.Services.AddODataParameters();
             builder.Services.AddAppServices();
             builder.Services.AddAppJobs(builder.Configuration);
-            builder.Services.AddVoximplant(builder.Configuration);
-            builder.Services.AddDataMining(builder.Configuration);
-
-            builder.Services.AddWmsODataClient(builder.Configuration);
 
             var app = builder.Build();
 

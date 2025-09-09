@@ -5,9 +5,6 @@ using WH.Api.OData.ODataParameters.AccumulationRegister;
 using WH.Api.OData.ODataParameters.Catalog;
 using WH.Api.OData.ODataParameters.Document;
 using WH.Api.OData.ODataParameters.InformationRegister;
-using WH.Api.OData.ODataParameters.Trash;
-using WH.Api.OData.ODataParameters.Wms;
-using WH.Api.OData.Wms;
 
 namespace WH.Api.OData
 {
@@ -19,20 +16,15 @@ namespace WH.Api.OData
             services.AddSingleton<IAccumulationRegisterВыручкаИСебестоимостьПродажTurnoversParameters, AccumulationRegisterВыручкаИСебестоимостьПродажTurnoversParameters>();
             services.AddSingleton<IAccumulationRegisterГрафикПоступленияТоваровRecordTypeParameters, AccumulationRegisterГрафикПоступленияТоваровRecordTypeParameters>();
             services.AddSingleton<IAccumulationRegisterЗакупкиRecordTypeParameters, AccumulationRegisterЗакупкиRecordTypeParameters>();
-            services.AddSingleton<IAccumulationRegisterСебестоимостьТоваровBalanceParameters, AccumulationRegisterСебестоимостьТоваровBalanceParameters>();
-            services.AddSingleton<IAccumulationRegisterСебестоимостьТоваровBalanceAndTurnoversParameters, AccumulationRegisterСебестоимостьТоваровBalanceAndTurnoversParameters>();
-            services.AddSingleton<IAccumulationRegisterСебестоимостьТоваровRecordTypeParameters, AccumulationRegisterСебестоимостьТоваровRecordTypeParameters>();
             services.AddSingleton<IAccumulationRegisterТоварыНаСкладахBalanceParameters, AccumulationRegisterТоварыНаСкладахBalanceParameters>();
             services.AddSingleton<IAccumulationRegisterТоварыНаСкладахBalanceAndTurnoversParameters, AccumulationRegisterТоварыНаСкладахBalanceAndTurnoversParameters>();
             services.AddSingleton<IAccumulationRegisterТоварыНаСкладахRecordTypeParameters, AccumulationRegisterТоварыНаСкладахRecordTypeParameters>();
 
             services.AddSingleton<ICatalogГруппыПользователейParameters, CatalogГруппыПользователейParameters>();
             services.AddSingleton<ICatalogБизнесРегионыParameters, CatalogБизнесРегионыParameters>();
-            services.AddSingleton<ICatalogВидыДеятельностиParameters, CatalogВидыДеятельностиParameters>();
             services.AddSingleton<ICatalogВидыНоменклатурыParameters, CatalogВидыНоменклатурыParameters>();
             services.AddSingleton<ICatalogВидыЦенParameters, CatalogВидыЦенParameters>();
             services.AddSingleton<ICatalogЗначенияСвойствОбъектовParameters, CatalogЗначенияСвойствОбъектовParameters>();
-            services.AddSingleton<ICatalogИсточникиЗаявокParameters, CatalogИсточникиЗаявокParameters>();
             services.AddSingleton<ICatalogМаркиParameters, CatalogМаркиParameters>();
             services.AddSingleton<ICatalogНоменклатураParameters, CatalogНоменклатураParameters>();
             services.AddSingleton<ICatalogПартнерыParameters, CatalogПартнерыParameters>();
@@ -45,7 +37,6 @@ namespace WH.Api.OData
             services.AddSingleton<ICatalogСоглашенияСКлиентамиParameters, CatalogСоглашенияСКлиентамиParameters>();
             services.AddSingleton<ICatalogСтруктураПредприятияParameters, CatalogСтруктураПредприятияParameters>();
             services.AddSingleton<ICatalogТэгиПартнеровParameters, CatalogТэгиПартнеровParameters>();
-            services.AddSingleton<ICatalogСхемаПредприятияParameters, CatalogСхемаПредприятияParameters>();
             services.AddSingleton<ICatalogУпаковкиЕдиницыИзмеренияParameters, CatalogУпаковкиЕдиницыИзмеренияParameters>();
             services.AddSingleton<ICatalogЦеновыеГруппыParameters, CatalogЦеновыеГруппыParameters>();
 
@@ -67,11 +58,6 @@ namespace WH.Api.OData
             services.AddSingleton<IInformationRegisterЦеныНоменклатурыЗакупочныеSliceLastParameters, InformationRegisterЦеныНоменклатурыЗакупочныеSliceLastParameters>();
             services.AddSingleton<IInformationRegisterЦеныНоменклатурыПоставкиSliceLastParameters, InformationRegisterЦеныНоменклатурыПоставкиSliceLastParameters>();
 
-            // Wms
-            services.AddSingleton<IAccumulationRegisterТоварыВЯчейкахBalanceAndTurnoversParameters, AccumulationRegisterТоварыВЯчейкахBalanceAndTurnoversParameters>();
-            services.AddSingleton<ICatalogЯчейкиParameters, CatalogЯчейкиParameters>();
-
-
             return services;
         }
 
@@ -90,23 +76,6 @@ namespace WH.Api.OData
             });
 
             return services;
-        }
-
-        public static IServiceCollection AddWmsODataClient(this IServiceCollection services, IConfiguration configuration)
-        {
-
-            WmsODataClientConfig oDataClientConfig = configuration.GetSection(WmsODataClientConfig.Section).Get<WmsODataClientConfig>()
-                ?? throw new ApplicationException("ODataClient Config not found");
-
-            services.AddHttpClient<IWmsODataClient, WmsODataClient>(options =>
-            {
-                options.BaseAddress = new Uri(oDataClientConfig.BaseAddress);
-                options.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue(MediaTypeNames.Application.Json));
-                options.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
-                    "Basic", Convert.ToBase64String(Encoding.UTF8.GetBytes($"{oDataClientConfig.Username}:{oDataClientConfig.Password}")));
-            });
-
-            return services;
-        }
+        }       
     }
 }

@@ -1,15 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using WH.Api.DataMining;
 using WH.Api.Jobs;
 using WH.Domain.Models;
 using WH.Domain.Models.AccumulationRegister;
 using WH.Domain.Models.Awesome;
-using WH.Domain.Models.Call;
 using WH.Domain.Models.Catalog;
-using WH.Domain.Models.DataMining;
 using WH.Domain.Models.Document;
 using WH.Domain.Models.InformationRegister;
-using WH.Domain.Models.Wms;
 
 namespace WH.Api.Data
 {
@@ -23,10 +19,6 @@ namespace WH.Api.Data
         public DbSet<AccumulationRegisterГрафикПоступленияТоваровRecordType> AccumulationRegisterГрафикПоступленияТоваровRecordType { get; set; }
         public DbSet<AccumulationRegisterЗакупкиRecordType> AccumulationRegisterЗакупкиRecordType { get; set; }
 
-        //public DbSet<AccumulationRegisterСебестоимостьТоваровBalance> AccumulationRegisterСебестоимостьТоваровBalance { get; set; }
-        //public DbSet<AccumulationRegisterСебестоимостьТоваровBalanceAndTurnovers> AccumulationRegisterСебестоимостьТоваровBalanceAndTurnovers { get; set; }
-        //public DbSet<AccumulationRegisterСебестоимостьТоваровRecordType> AccumulationRegisterСебестоимостьТоваровRecordType { get; set; }
-
         public DbSet<AccumulationRegisterТоварыНаСкладахBalance> AccumulationRegisterТоварыНаСкладахBalance { get; set; }
         public DbSet<AccumulationRegisterТоварыНаСкладахBalanceAndTurnovers> AccumulationRegisterТоварыНаСкладахBalanceAndTurnovers { get; set; }
 
@@ -34,13 +26,11 @@ namespace WH.Api.Data
 
         // Catalog
         public DbSet<CatalogБизнесРегионы> CatalogБизнесРегионы { get; set; }
-        public DbSet<CatalogВидыДеятельности> CatalogВидыДеятельности { get; set; }
         public DbSet<CatalogГруппыПользователей> CatalogГруппыПользователей { get; set; }
         public DbSet<CatalogГруппыПользователейСостав> CatalogГруппыПользователейСостав { get; set; }
         public DbSet<CatalogВидыНоменклатуры> CatalogВидыНоменклатуры { get; set; }
         public DbSet<CatalogВидыЦен> CatalogВидыЦен { get; set; }
         public DbSet<CatalogЗначенияСвойствОбъектов> CatalogЗначенияСвойствОбъектов { get; set; }
-        public DbSet<CatalogИсточникиЗаявок> CatalogИсточникиЗаявок { get; set; }
         public DbSet<CatalogМарки> CatalogМарки { get; set; }
         public DbSet<CatalogНоменклатура> CatalogНоменклатура { get; set; }
         public DbSet<CatalogПартнеры> CatalogПартнеры { get; set; }
@@ -54,11 +44,9 @@ namespace WH.Api.Data
         public DbSet<CatalogСклады> CatalogСклады { get; set; }
         public DbSet<CatalogСоглашенияСКлиентами> CatalogСоглашенияСКлиентами { get; set; }
         public DbSet<CatalogСтруктураПредприятия> CatalogСтруктураПредприятия { get; set; }
-        public DbSet<CatalogСхемаПредприятия> CatalogСхемаПредприятия { get; set; }
-        public DbSet<CatalogТэгиПартнеров> CatalogТэгиПартнеров { get; set; }
         public DbSet<CatalogУпаковкиЕдиницыИзмерения> CatalogУпаковкиЕдиницыИзмерения { get; set; }
         public DbSet<CatalogЦеновыеГруппы> CatalogЦеновыеГруппы { get; set; }
-        
+
         // Document
         public DbSet<DocumentАктОРасхожденияхПослеОтгрузки> DocumentАктОРасхожденияхПослеОтгрузки { get; set; }
         public DbSet<DocumentАктОРасхожденияхПослеОтгрузкиТовары> DocumentАктОРасхожденияхПослеОтгрузкиТовары { get; set; }
@@ -95,23 +83,9 @@ namespace WH.Api.Data
 
 
         // InformationRegister 
-
-        public DbSet<InformationRegisterТэгиПартнеров> InformationRegisterТэгиПартнеров { get; set; }
         public DbSet<InformationRegisterЦеныНоменклатурыRecordType> InformationRegisterЦеныНоменклатурыRecordType { get; set; }
         public DbSet<InformationRegisterЦеныНоменклатурыЗакупочныеSliceLast> InformationRegisterЦеныНоменклатурыЗакупочныеSliceLast { get; set; }
         public DbSet<InformationRegisterЦеныНоменклатурыПоставкиSliceLast> InformationRegisterЦеныНоменклатурыПоставкиSliceLast { get; set; }
-
-        // Call
-        public DbSet<CallItem> CallItems { get; set; }
-
-        // DataMining
-        public DbSet<Predict> Predicts { get; set; }
-        public DbSet<ScuSaleRank> ScuSaleRanks { get; set; }
-
-        // Wms
-        public DbSet<AccumulationRegisterТоварыВЯчейкахBalanceAndTurnovers> AccumulationRegisterТоварыВЯчейкахBalanceAndTurnovers { get; set; }
-        public DbSet<CatalogЯчейки> CatalogЯчейки { get; set; }
-        public DbSet<CatalogЯчейкиНоменклатураЯчейки> CatalogЯчейкиНоменклатураЯчейки { get; set; }
 
         // Awesome
         public DbSet<VТоварыНаСкладахBalanceAndTurnoversNoWhs> VТоварыНаСкладахBalanceAndTurnoversNoWhs { get; set; }
@@ -133,29 +107,22 @@ namespace WH.Api.Data
             modelBuilder.Entity<AccumulationRegisterВыручкаИСебестоимостьПродажTurnovers>().ToTable("AccumulationRegister_ВыручкаИСебестоимостьПродаж_Turnovers").HasKey(e => e.Id);
             modelBuilder.Entity<AccumulationRegisterГрафикПоступленияТоваровRecordType>().ToTable("AccumulationRegister_ГрафикПоступленияТоваров_RecordType").HasKey(e => e.Id);
             modelBuilder.Entity<AccumulationRegisterЗакупкиRecordType>().ToTable("AccumulationRegister_Закупки_RecordType").HasKey(e => e.Id);
-            //modelBuilder.Entity<AccumulationRegisterСебестоимостьТоваровBalance>().ToTable("AccumulationRegister_СебестоимостьТоваров_Balance").HasKey(e => e.Id);
-            //modelBuilder.Entity<AccumulationRegisterСебестоимостьТоваровBalanceAndTurnovers>().ToTable("AccumulationRegister_СебестоимостьТоваров_BalanceAndTurnovers").HasKey(e => e.Id);
-            //modelBuilder.Entity<AccumulationRegisterСебестоимостьТоваровRecordType>().ToTable("AccumulationRegister_СебестоимостьТоваров_RecordType").HasKey(e => e.Id);
             modelBuilder.Entity<AccumulationRegisterТоварыНаСкладахBalance>().ToTable("AccumulationRegister_ТоварыНаСкладах_Balance").HasKey(e => e.Id);
             modelBuilder.Entity<AccumulationRegisterТоварыНаСкладахBalanceAndTurnovers>().ToTable("AccumulationRegister_ТоварыНаСкладах_BalanceAndTurnovers").HasKey(e => e.Id);
             modelBuilder.Entity<AccumulationRegisterТоварыНаСкладахRecordType>().ToTable("AccumulationRegister_ТоварыНаСкладах_RecordType").HasKey(e => e.Id);
 
-
             // Catalog
             modelBuilder.Entity<CatalogБизнесРегионы>().ToTable("Catalog_БизнесРегионы").HasKey(e => e.Ref_Key);
-            modelBuilder.Entity<CatalogВидыДеятельности>().ToTable("Catalog_ВидыДеятельности").HasKey(e => e.Ref_Key);
             modelBuilder.Entity<CatalogГруппыПользователей>().ToTable("Catalog_ГруппыПользователей").HasKey(e => e.Ref_Key);
             modelBuilder.Entity<CatalogГруппыПользователей>().HasMany(e => e.Состав).WithOne().HasForeignKey(e => e.Ref_Key).HasPrincipalKey(e => e.Ref_Key).OnDelete(DeleteBehavior.Cascade);
             modelBuilder.Entity<CatalogГруппыПользователейСостав>().ToTable("Catalog_ГруппыПользователей_Состав").HasKey(e => new { e.Ref_Key, e.LineNumber });
             modelBuilder.Entity<CatalogВидыНоменклатуры>().ToTable("Catalog_ВидыНоменклатуры").HasKey(e => e.Ref_Key);
             modelBuilder.Entity<CatalogВидыЦен>().ToTable("Catalog_ВидыЦен").HasKey(e => e.Ref_Key);
             modelBuilder.Entity<CatalogЗначенияСвойствОбъектов>().ToTable("Catalog_ЗначенияСвойствОбъектов").HasKey(e => e.Ref_Key);
-            modelBuilder.Entity<CatalogИсточникиЗаявок>().ToTable("Catalog_ИсточникиЗаявок").HasKey(e => e.Ref_Key);
+
             modelBuilder.Entity<CatalogМарки>().ToTable("Catalog_Марки").HasKey(e => e.Ref_Key);
             modelBuilder.Entity<CatalogНоменклатура>().ToTable("Catalog_Номенклатура").HasKey(e => e.Ref_Key);
             modelBuilder.Entity<CatalogПартнеры>().ToTable("Catalog_Партнеры").HasKey(e => e.Ref_Key);
-            modelBuilder.Entity<CatalogПартнеры>().HasMany(e => e.ВидыДеятельности).WithOne().HasForeignKey(e => e.Ref_Key).HasPrincipalKey(e => e.Ref_Key).OnDelete(DeleteBehavior.Cascade);
-            //modelBuilder.Entity<CatalogПартнеры>().HasMany(e => e.ДополнительныеРеквизиты).WithOne().HasForeignKey(e => e.Ref_Key).HasPrincipalKey(e => e.Ref_Key).OnDelete(DeleteBehavior.Cascade);
             modelBuilder.Entity<CatalogПартнерыВидыДеятельности>().ToTable("Catalog_Партнеры_ВидыДеятельности").HasKey(e => new { e.Ref_Key, e.LineNumber });
             modelBuilder.Entity<CatalogПартнерыДополнительныеРеквизиты>().ToTable("Catalog_Партнеры_ДополнительныеРеквизиты").HasKey(e => new { e.Ref_Key, e.LineNumber });
             modelBuilder.Entity<CatalogПартнерыVip>().ToTable("Catalog_Партнеры_Vip").HasKey(e => e.Партнер_Key);
@@ -165,12 +132,9 @@ namespace WH.Api.Data
             modelBuilder.Entity<CatalogПроизводители>().ToTable("Catalog_Производители").HasKey(e => e.Ref_Key);
             modelBuilder.Entity<CatalogСклады>().ToTable("Catalog_Склады").HasKey(e => e.Ref_Key);
             modelBuilder.Entity<CatalogСоглашенияСКлиентами>().ToTable("Catalog_СоглашенияСКлиентами").HasKey(e => e.Ref_Key);
-            modelBuilder.Entity<CatalogСхемаПредприятия>().ToTable("Catalog_СхемаПредприятия").HasKey(e => e.Ref_Key);
-            modelBuilder.Entity<CatalogТэгиПартнеров>().ToTable("Catalog_ТэгиПартнеров").HasKey(e => e.Ref_Key);
             modelBuilder.Entity<CatalogСтруктураПредприятия>().ToTable("Catalog_СтруктураПредприятия").HasKey(e => e.Ref_Key);
             modelBuilder.Entity<CatalogУпаковкиЕдиницыИзмерения>().ToTable("Catalog_УпаковкиЕдиницыИзмерения").HasKey(e => e.Ref_Key);
             modelBuilder.Entity<CatalogЦеновыеГруппы>().ToTable("Catalog_ЦеновыеГруппы").HasKey(e => e.Ref_Key);
-
 
             // Document
             modelBuilder.Entity<DocumentАктОРасхожденияхПослеОтгрузки>().ToTable("Document_АктОРасхожденияхПослеОтгрузки").HasKey(e => e.Ref_Key);
@@ -219,31 +183,14 @@ namespace WH.Api.Data
 
 
             // InformationRegister
-            modelBuilder.Entity<InformationRegisterТэгиПартнеров>().ToTable("InformationRegister_ТэгиПартнеров").HasKey(e => new { e.Партнер_Key, e.Тэг_Key });
             modelBuilder.Entity<InformationRegisterЦеныНоменклатурыRecordType>().ToTable("InformationRegister_ЦеныНоменклатуры_RecordType").HasKey(e => e.Id);
             modelBuilder.Entity<InformationRegisterЦеныНоменклатурыЗакупочныеSliceLast>().ToTable("InformationRegister_ЦеныНоменклатуры_Закупочные_SliceLast").HasKey(e => e.Id);
             modelBuilder.Entity<InformationRegisterЦеныНоменклатурыПоставкиSliceLast>().ToTable("InformationRegister_ЦеныНоменклатуры_Поставки_SliceLast").HasKey(e => e.Id);
-
-            // Call
-            modelBuilder.Entity<CallItem>().HasKey(e => e.Id);
-
-            // DataMining
-            modelBuilder.ApplyConfiguration(new DataMiningPredictConfiguration());
-            modelBuilder.ApplyConfiguration(new DataMiningScuSaleRankConfiguration());
-
-            // Wms
-            modelBuilder.Entity<AccumulationRegisterТоварыВЯчейкахBalanceAndTurnovers>().ToTable("wms_AccumulationRegister_ТоварыВЯчейках_BalanceAndTurnovers").HasKey(e => e.Id);
-
-
-            modelBuilder.Entity<CatalogЯчейки>().ToTable("wms_Catalog_Ячейки").HasKey(e => e.Ref_Key);
-            modelBuilder.Entity<CatalogЯчейкиНоменклатураЯчейки>().ToTable("wms_Catalog_Ячейки_НоменклатураЯчейки").HasKey(e => new { e.Ref_Key, e.LineNumber });
-            modelBuilder.Entity<CatalogЯчейки>().HasMany(e => e.НоменклатураЯчейки).WithOne().HasForeignKey(e => e.Ref_Key).HasPrincipalKey(e => e.Ref_Key).OnDelete(DeleteBehavior.Cascade);
 
             // Awesome
             modelBuilder.Entity<VТоварыНаСкладахBalanceAndTurnoversNoWhs>().ToView("v_ТоварыНаСкладах_BalanceAndTurnovers_no_whs").HasNoKey();
             modelBuilder.Entity<VТоварыНаСкладахRecordTypeОперацияЦеныOp>().ToView("v_ТоварыНаСкладах_RecordType_Операция_Цены_op").HasNoKey();
             modelBuilder.Entity<AwesomeТоварыНаСкладахRecordTypeОперацияЦены>().ToTable("Awesome_ТоварыНаСкладах_RecordType_ОперацияЦены").HasKey(e => e.Id);
-            //modelBuilder.Entity<AwesomeТоварыНаСкладахRecordTypeОперацияЦены>().ToTable("Awesome_ТоварыНаСкладах_RecordType_ОперацияЦены_bak").HasKey(e => e.Id); // TODO: TEST
         }
     }
 }
