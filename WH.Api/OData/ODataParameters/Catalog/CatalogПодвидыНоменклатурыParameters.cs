@@ -9,7 +9,7 @@ namespace WH.Api.OData.ODataParameters.Catalog
     public class CatalogПодвидыНоменклатурыParameters : ICatalogПодвидыНоменклатурыParameters
     {
         public int? Top => 1000;
-        public string Owner_Key => "66ee3432-6206-11eb-ba9f-00155d01d106";
+        public string Owner_Key => "59b20642-88d8-11f0-ba8a-00155d013e14";
 
         public string GetCountUri(DateTime? begin = null, DateTime? end = null)
         {

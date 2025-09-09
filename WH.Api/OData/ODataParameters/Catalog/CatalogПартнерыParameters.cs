@@ -19,7 +19,7 @@ namespace WH.Api.OData.ODataParameters.Catalog
             string uri = "Catalog_Партнеры" +
                          $"?$skip={Top * iteration}" +
                          $"&$top={Top}" +
-                          "&$select=Ref_Key,DeletionMark,Parent_Key,Description,БизнесРегион_Key,ОсновнойМенеджер_Key,ДатаРегистрации,ЮрФизЛицо,Клиент,Поставщик,Конкурент,ПрочиеОтношения,Перевозчик,ВДП_ВидыДеятельности" +
+                          "&$select=Ref_Key,DeletionMark,Parent_Key,Description,БизнесРегион_Key,ОсновнойМенеджер_Key,ДатаРегистрации,ЮрФизЛицо,Клиент,Поставщик,Конкурент,ПрочиеОтношения,Перевозчик" +
                           "&$orderby=Ref_Key" +
                           "&$format=json" +
                           "&$inlinecount=allpages";
