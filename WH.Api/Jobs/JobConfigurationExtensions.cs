@@ -28,9 +28,9 @@ namespace WH.Api.Jobs
                 // AccumulationRegister  
                 q.AddJobAndTrigger<AccumulationRegisterВыручкаИСебестоимостьПродажRecordTypeLastTripleMonthJob>(configuration);
                 q.AddJobAndTrigger<AccumulationRegisterВыручкаИСебестоимостьПродажTurnoversLastTripleMonthJob>(configuration);
-                q.AddJobAndTrigger<AccumulationRegisterЗакупкиRecordTypeLastTripleMonthJob>(configuration);
+                //q.AddJobAndTrigger<AccumulationRegisterЗакупкиRecordTypeLastTripleMonthJob>(configuration);
+                //q.AddJobAndTrigger<AccumulationRegisterТоварыНаСкладахBalanceLastTripleMonthJob>(configuration);
                 q.AddJobAndTrigger<AccumulationRegisterТоварыНаСкладахBalanceAndTurnoversLastTripleMonthJob>(configuration);
-                q.AddJobAndTrigger<AccumulationRegisterТоварыНаСкладахBalanceLastTripleMonthJob>(configuration);
                 q.AddJobAndTrigger<AccumulationRegisterТоварыНаСкладахRecordTypeLastTripleMonthJob>(configuration);
 
                 // Awesome
