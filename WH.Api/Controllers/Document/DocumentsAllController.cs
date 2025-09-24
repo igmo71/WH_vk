@@ -24,5 +24,15 @@ namespace WH.Api.Controllers.Document
             var result = await _documentsAllService.LoadingLastTripleMonthsAsync();
             return Ok(result);
         }
+
+        [HttpGet("date-period")]
+        public async Task<ActionResult<ServiceResult>> LoadingAsync(DateTime begin, DateTime end)
+        {
+            if (_documentsAllService == null)
+                return Problem(detail: "Document Service not found");
+
+            var result = await _documentsAllService.LoadingAsync(begin, end);
+            return Ok(result);
+        }
     }
 }

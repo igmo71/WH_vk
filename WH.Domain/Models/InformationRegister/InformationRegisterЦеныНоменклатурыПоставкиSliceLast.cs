@@ -4,8 +4,8 @@ using System.Data;
 
 namespace WH.Domain.Models.InformationRegister
 {
-    // Закупочная Доброга
-    public class InformationRegisterЦеныНоменклатурыЗакупочныеSliceLast
+    // Закупочная ВоронежКреп
+    public class InformationRegisterЦеныНоменклатурыПоставкиSliceLast
     {
         public Guid Id { get; set; }
         [Column(TypeName = nameof(SqlDbType.Date))] public DateTime Date { get; set; }
@@ -13,5 +13,4 @@ namespace WH.Domain.Models.InformationRegister
         [MaxLength(AppSettings.GUID)] public string? Номенклатура_Key { get; set; }
         public double Цена { get; set; }
     }
-
 }

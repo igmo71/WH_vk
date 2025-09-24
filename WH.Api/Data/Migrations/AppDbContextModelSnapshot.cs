@@ -1380,7 +1380,7 @@ namespace WH.Api.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("CurrencyRates");
+                    b.ToTable("CurrencyRates", (string)null);
                 });
 
             modelBuilder.Entity("WH.Domain.Models.Document.DocumentАктОРасхожденияхПослеОтгрузки", b =>

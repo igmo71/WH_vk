@@ -84,7 +84,10 @@ namespace WH.Api.Data
 
         // InformationRegister 
         public DbSet<InformationRegisterЦеныНоменклатурыRecordType> InformationRegisterЦеныНоменклатурыRecordType { get; set; }
+        //Закупочная Доброга
         public DbSet<InformationRegisterЦеныНоменклатурыЗакупочныеSliceLast> InformationRegisterЦеныНоменклатурыЗакупочныеSliceLast { get; set; }
+        // Закупочная ВоронежКреп
+        public DbSet<InformationRegisterЦеныНоменклатурыПоставкиSliceLast> InformationRegisterЦеныНоменклатурыПоставкиSliceLast { get; set; }
         
         // Awesome
         public DbSet<VТоварыНаСкладахBalanceAndTurnoversNoWhs> VТоварыНаСкладахBalanceAndTurnoversNoWhs { get; set; }
@@ -184,7 +187,8 @@ namespace WH.Api.Data
             // InformationRegister
             modelBuilder.Entity<InformationRegisterЦеныНоменклатурыRecordType>().ToTable("InformationRegister_ЦеныНоменклатуры_RecordType").HasKey(e => e.Id);
             modelBuilder.Entity<InformationRegisterЦеныНоменклатурыЗакупочныеSliceLast>().ToTable("InformationRegister_ЦеныНоменклатуры_Закупочные_SliceLast").HasKey(e => e.Id);
-            
+            modelBuilder.Entity<InformationRegisterЦеныНоменклатурыПоставкиSliceLast>().ToTable("InformationRegister_ЦеныНоменклатуры_Поставки_SliceLast").HasKey(e => e.Id);
+
             // Awesome
             modelBuilder.Entity<VТоварыНаСкладахBalanceAndTurnoversNoWhs>().ToView("v_ТоварыНаСкладах_BalanceAndTurnovers_no_whs").HasNoKey();
             modelBuilder.Entity<VТоварыНаСкладахRecordTypeОперацияЦеныOp>().ToView("v_ТоварыНаСкладах_RecordType_Операция_Цены_op").HasNoKey();

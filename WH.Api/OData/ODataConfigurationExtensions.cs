@@ -56,7 +56,8 @@ namespace WH.Api.OData
             services.AddSingleton<IInformationRegisterТэгиПартнеровParameters, InformationRegisterТэгиПартнеровParameters>();
             services.AddSingleton<IInformationRegisterЦеныНоменклатурыRecordTypeParameters, InformationRegisterЦеныНоменклатурыRecordTypeParameters>();
             services.AddSingleton<IInformationRegisterЦеныНоменклатурыЗакупочныеSliceLastParameters, InformationRegisterЦеныНоменклатурыЗакупочныеSliceLastParameters>();
-            
+            services.AddSingleton<IInformationRegisterЦеныНоменклатурыПоставкиSliceLastParameters, InformationRegisterЦеныНоменклатурыПоставкиSliceLastParameters>();
+
             return services;
         }
 

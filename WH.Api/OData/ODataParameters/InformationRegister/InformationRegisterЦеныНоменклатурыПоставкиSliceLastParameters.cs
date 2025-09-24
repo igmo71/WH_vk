@@ -1,12 +1,12 @@
 ﻿namespace WH.Api.OData.ODataParameters.InformationRegister
 {
-    // Закупочная Доброга
-    public interface IInformationRegisterЦеныНоменклатурыЗакупочныеSliceLastParameters
+    // Закупочная ВоронежКреп
+    public interface IInformationRegisterЦеныНоменклатурыПоставкиSliceLastParameters
     {
         string GetUri(DateTime? period);
     }
 
-    public class InformationRegisterЦеныНоменклатурыЗакупочныеSliceLastParameters : IInformationRegisterЦеныНоменклатурыЗакупочныеSliceLastParameters
+    public class InformationRegisterЦеныНоменклатурыПоставкиSliceLastParameters : IInformationRegisterЦеныНоменклатурыПоставкиSliceLastParameters
     {
         public string GetUri(DateTime? period)
         {
@@ -15,7 +15,7 @@
 
             string uri = "InformationRegister_ЦеныНоменклатуры25_RecordType" +
                         $"/SliceLast(Period='{((DateTime)period).AddHours(23).AddMinutes(59).AddSeconds(59):s}')" +
-                         "?$filter=ВидЦены_Key eq guid'19691144-7da9-11f0-ba88-00155d013e14'" +
+                         "?$filter=ВидЦены_Key eq guid'4ca658b6-9859-11f0-ba8a-00155d013e14'" +
                          "&$select=Period,Номенклатура_Key,Цена" +
                          "&$format=json";
             return uri;
