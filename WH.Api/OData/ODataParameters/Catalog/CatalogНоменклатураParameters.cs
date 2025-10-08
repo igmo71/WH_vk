@@ -11,7 +11,7 @@ namespace WH.Api.OData.ODataParameters.Catalog
     public class CatalogНоменклатураParameters : ICatalogНоменклатураParameters
     {
         public int? Top => 5000;
-        public string ПодвидНоменклатуры_Key => "66ee3432-6206-11eb-ba9f-00155d01d106";
+        public string ПодвидНоменклатуры_Key => "59b20642-88d8-11f0-ba8a-00155d013e14";
         public string БазоваяНоменклатура_Key => "be45e4c2-6719-11ec-baa9-00155d01d102";
         public string ТипУпаковки_Key => "1bbce310-8af6-11eb-ba9f-00155d01d106";
 
