@@ -25,6 +25,7 @@ namespace WH.Api.OData
             services.AddSingleton<ICatalogВидыНоменклатурыParameters, CatalogВидыНоменклатурыParameters>();
             services.AddSingleton<ICatalogВидыЦенParameters, CatalogВидыЦенParameters>();
             services.AddSingleton<ICatalogЗначенияСвойствОбъектовParameters, CatalogЗначенияСвойствОбъектовParameters>();
+            services.AddSingleton<ICatalogКонтрагентыParameters, CatalogКонтрагентыParameters>();
             services.AddSingleton<ICatalogМаркиParameters, CatalogМаркиParameters>();
             services.AddSingleton<ICatalogНоменклатураParameters, CatalogНоменклатураParameters>();
             services.AddSingleton<ICatalogПартнерыParameters, CatalogПартнерыParameters>();

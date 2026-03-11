@@ -27,6 +27,7 @@ namespace WH.Api.Services
             services.AddScoped<ICatalogВидыНоменклатурыService, CatalogВидыНоменклатурыService>();
             services.AddScoped<ICatalogВидыЦенService, CatalogВидыЦенService>();
             services.AddScoped<ICatalogЗначенияСвойствОбъектовService, CatalogЗначенияСвойствОбъектовService>();
+            services.AddScoped<ICatalogКонтрагентыService, CatalogКонтрагентыService>();
             services.AddScoped<ICatalogМаркиService, CatalogМаркиService>();
             services.AddScoped<ICatalogНоменклатураService, CatalogНоменклатураService>();
             services.AddScoped<ICatalogПартнерыService, CatalogПартнерыService>();

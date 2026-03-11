@@ -31,6 +31,7 @@ namespace WH.Api.Data
         public DbSet<CatalogВидыНоменклатуры> CatalogВидыНоменклатуры { get; set; }
         public DbSet<CatalogВидыЦен> CatalogВидыЦен { get; set; }
         public DbSet<CatalogЗначенияСвойствОбъектов> CatalogЗначенияСвойствОбъектов { get; set; }
+        public DbSet<CatalogКонтрагенты> CatalogКонтрагенты { get; set; }
         public DbSet<CatalogМарки> CatalogМарки { get; set; }
         public DbSet<CatalogНоменклатура> CatalogНоменклатура { get; set; }
         public DbSet<CatalogПартнеры> CatalogПартнеры { get; set; }
@@ -121,7 +122,7 @@ namespace WH.Api.Data
             modelBuilder.Entity<CatalogВидыНоменклатуры>().ToTable("Catalog_ВидыНоменклатуры").HasKey(e => e.Ref_Key);
             modelBuilder.Entity<CatalogВидыЦен>().ToTable("Catalog_ВидыЦен").HasKey(e => e.Ref_Key);
             modelBuilder.Entity<CatalogЗначенияСвойствОбъектов>().ToTable("Catalog_ЗначенияСвойствОбъектов").HasKey(e => e.Ref_Key);
-
+            modelBuilder.Entity<CatalogКонтрагенты>().ToTable("Catalog_Контрагенты").HasKey(e => e.Ref_Key);
             modelBuilder.Entity<CatalogМарки>().ToTable("Catalog_Марки").HasKey(e => e.Ref_Key);
             modelBuilder.Entity<CatalogНоменклатура>().ToTable("Catalog_Номенклатура").HasKey(e => e.Ref_Key);
             modelBuilder.Entity<CatalogПартнеры>().ToTable("Catalog_Партнеры").HasKey(e => e.Ref_Key);
